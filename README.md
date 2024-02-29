@@ -8,28 +8,27 @@ This project is a Telegram bot that leverages the power of the GalaxyAI API to g
 - Easy to use with a simple command interface.
 - Free to use, powered by the free API.
 
-## Requirements
-
-- Telegram Bot Token (from BotFather)
-- GalaxyAI API Key (free)
-
-## Getting Started
-
-1. Clone this repository to your local machine.
-2. Install the required dependencies with `npm install`.
-3. Set up your Telegram bot and obtain your Telegram Bot Token.
-4. Sign up on GalaxyAI to get your free API key.
-
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
 - You have installed the latest version of Node.js.
 
+## Requirements
+
+- Telegram Bot Token (from **BotFather**)
+- GalaxyAI API Key (**free**)
+
+## Getting Started
+
+1. Clone this repository to your local machine.
+2. Install the required dependencies with `npm install`.
+3. Set up your Telegram bot and obtain your Telegram Bot Token.
+4. Get your GalaxyAI api key from [Get Key](https://discord.com/invite/G8cZrvhrfD).
+
 ## How to Get the API Key
 
-*This section is a placeholder. Please follow the instructions provided by the API provider to obtain your API key.*
-
+*This section is a placeholder. Please follow the instructions
 ## Usage
 
 1. Clone the repository.
