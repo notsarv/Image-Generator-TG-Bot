@@ -1,6 +1,6 @@
 # Telegram Bot for Unlimited Image Generation
 
-This project is a Telegram bot that leverages the power of the GalaxyAI API to generate unlimited images. 
+This simple,lightweight Telegram Bot can generate unlimited images based on your **prompt**.
 
 ## Features
 
