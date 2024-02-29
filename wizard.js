@@ -26,7 +26,7 @@ const wizard = new Wizard(
     let imgApi = new ImgApi();
     let params = {
 	"model" : "default",
-        "n": 1,
+        "n": `${ctx.message.text}`,
         "prompt": `${ctx.session.prompt}`
     };
 
