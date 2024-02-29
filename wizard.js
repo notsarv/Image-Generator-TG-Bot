@@ -35,7 +35,6 @@ const wizard = new Wizard(
       ctx.reply('Enter value between 1-75 !');
       return;
     }
-
     ctx.session.steps = steps;
     return ctx.wizard.next();
   },
@@ -43,7 +42,8 @@ const wizard = new Wizard(
     ctx.reply('Please Wait ...');
     let imgApi = new ImgApi();
     let params = {
-        "num_images": 1,
+	"model" : "default",
+        "n": 1,
         "prompt": `${ctx.session.prompt}`
     };
 
@@ -56,69 +56,6 @@ const wizard = new Wizard(
     return ctx.scene.leave();
   }
 );
-
-async function modelExists(model){
-  try{
-    let resp = await fetch("https://getimg.ai/api/models?status=active&public=true", {
-      "headers": {
-          "accept": "application/json, text/plain,",
-          "accept-language": "en-IN,en;q=0.9,hi-IN;q=0.8,hi;q=0.7,en-GB;q=0.6,en-US;q=0.5",
-          "sec-ch-ua": "\"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"",
-          "sec-ch-ua-mobile": "?1",                                                                       "sec-ch-ua-platform": "\"Android\"",
-          "sec-fetch-dest": "empty",                                                                      "sec-fetch-mode": "cors",
-          "sec-fetch-site": "same-origin",
-          "Referer": "https://getimg.ai/text-to-image",
-          "Referrer-Policy": "strict-origin-when-cross-origin"
-      },
-      "body": null,
-      "method": "GET"
-    });
-
-    let json = await resp.json();
-    var modelsId = [];
-    for(let i in json){
-        let id = json[i].id;
-        modelsId.push(`${id}`);
-    }
-    return modelsId.includes(model);
-  }catch(err){
-    console.log(err);
-    return null;
-  }
-}
-
-async function getModels(){
-  try{
-    let resp = await fetch("https://getimg.ai/api/models?status=active&public=true", {
-      "headers": {
-  	  "accept": "application/json, text/plain,",
-  	  "accept-language": "en-IN,en;q=0.9,hi-IN;q=0.8,hi;q=0.7,en-GB;q=0.6,en-US;q=0.5",
-   	  "sec-ch-ua": "\"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"",
-          "sec-ch-ua-mobile": "?1",
-          "sec-ch-ua-platform": "\"Android\"",
-          "sec-fetch-dest": "empty",
-          "sec-fetch-mode": "cors",
-          "sec-fetch-site": "same-origin",
-          "Referer": "https://getimg.ai/text-to-image",
-          "Referrer-Policy": "strict-origin-when-cross-origin"
-      },
-      "body": null,
-      "method": "GET"
-    });
-
-    let json = await resp.json();
-    var models = '';
-    for(let i in json){
-        let id = json[i].id;
-        let name = json[i].name;
-	models = `${models}\n\n${(i-0)+1}. ${name}  ( `+"```"+`${id}`+"``` )";
-    }
-    return models;
-  }catch(err){
-    console.log(err);
-    return null;
-  }
-}
 
 
 export default wizard;
