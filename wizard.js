@@ -7,27 +7,7 @@ const Wizard = Scenes.WizardScene;
 const wizard = new Wizard(
   'image-wizard',
   async (ctx) => {
-    await ctx.reply('Please Select the Model Id ...');
-    await ctx.replyWithMarkdown(await getModels());
-    return ctx.wizard.next();
-  },
-  async (ctx) => {
-    let model = ctx.message.text;
-    let model_isOk = await modelExists(model);
-    if(!model_isOk){
-	ctx.reply('Invalid Model Id !');
-	return;
-    }
-    ctx.session.model = model;
-    await ctx.reply(`Model: ${model}`);
     await ctx.reply('Enter the Prompt for Image ...');
-    return ctx.wizard.next();
-  },
-  async (ctx) => {
-    let prompt = ctx.message.text;
-    ctx.session.prompt = prompt;
-    await ctx.reply(`Prompt: ${prompt}`);
-    await ctx.reply('Enter Negative Prompt for Image ...');
     return ctx.wizard.next();
   },
   async (ctx) => {
@@ -57,37 +37,14 @@ const wizard = new Wizard(
     }
 
     ctx.session.steps = steps;
-    await ctx.reply(`Number of Steps: ${steps}`);
-    await ctx.reply('Enter Guidance scale of Prompt ( 1-20 ) ...');
-    return ctx.wizard.next();
-  },
-  async (ctx) => {
-    let guidanceScale = ctx.message.text;
-    if (!(guidanceScale >= 1 && guidanceScale <= 20)) {
-      ctx.reply('Enter value between 1-20 !');
-      return;
-    }
-
-    ctx.session.guidanceScale = guidanceScale;
-    await ctx.reply(`Guidance Scale: ${guidanceScale}`);
-    await ctx.reply('Reply anything to start generating ...');
     return ctx.wizard.next();
   },
   async (ctx) => {
     ctx.reply('Please Wait ...');
     let imgApi = new ImgApi();
-    await imgApi.login();
     let params = {
-        "tool": "generator",
-        "num_inference_steps": `${ctx.session.steps}`,
-        "guidance_scale": `${ctx.session.guidanceScale}`,
         "num_images": 1,
-        "width": 768,
-        "height": 1024,
-        "enhance_face": "false",
-        "scheduler": "dpmsolver++",
-        "prompt": `${ctx.session.prompt}`,
-        "negative_prompt": `${ctx.session.nprompt}`
+        "prompt": `${ctx.session.prompt}`
     };
 
     let imgs = await imgApi.generateImage(ctx.session.model, params);
