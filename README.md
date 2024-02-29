@@ -6,17 +6,17 @@ This project is a Telegram bot that leverages the power of the GalaxyAI API to g
 
 - Generate unlimited images directly through Telegram.
 - Easy to use with a simple command interface.
-- Free to use, powered by the GalaxyAI API.
+- Free to use, powered by the free API.
 
 ## Requirements
 
-- Telegram Bot Token
-- GalaxyAI API Key
+- Telegram Bot Token (from BotFather)
+- GalaxyAI API Key (free)
 
 ## Getting Started
 
 1. Clone this repository to your local machine.
-2. Install the required dependencies with `pip install -r requirements.txt`.
+2. Install the required dependencies with `npm install`.
 3. Set up your Telegram bot and obtain your Telegram Bot Token.
 4. Sign up on GalaxyAI to get your free API key.
 
