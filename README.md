@@ -41,6 +41,10 @@ Before you begin, ensure you have met the following requirements:
 4. Open the `.env.example` file.
 5. Update the `BOT_TOKEN` and `API_KEY` with your Telegram bot token and API key you generated respectively.
 6. Rename the `.env.example` file to `.env`.
+7. Run
+```bash
+node index.js
+```
 
 ## Contributing
 
