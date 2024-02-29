@@ -16,19 +16,9 @@ const wizard = new Wizard(
       ctx.reply('Enter value between 1-10 !');
       return;
     },
-async (ctx) => {
     ctx.session.noOfImage = noOfImage;
     await ctx.reply(`Number of Images: 1`);
     await ctx.reply('Enter Steps of generating Image ( 1-75 ) ...');
-    return ctx.wizard.next();
-  },
-  async (ctx) => {
-    let steps = ctx.message.text;
-    if (!(steps >= 1 && steps <= 75)) {
-      ctx.reply('Enter value between 1-75 !');
-      return;
-    }
-    ctx.session.steps = steps;
     return ctx.wizard.next();
   },
   async (ctx) => {
