@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 class ImgApi{
 
-    async generateImage(model, params){
+    async generateImage(params){
         try{
             let img = await fetch(`https://galaxyapi.onrender.com/v1/images/generations`, {
                 "headers": {
