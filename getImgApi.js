@@ -6,8 +6,8 @@ class ImgApi{
         try{
             let img = await fetch(`https://galaxyapi.onrender.com/v1/images/generations`, {
                 "headers": {
-		    "accept": "application/json, text/plain",
-                    "Authorization": 'Bearer ${process.env.apikey}',
+		    "accept": "application/json",
+                    "Authorization": `Bearer ${process.env.apikey}`,
                     "content-type": "application/json"
                 },
                 "body": `${JSON.stringify(params)}`,
