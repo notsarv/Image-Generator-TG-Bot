@@ -14,12 +14,16 @@ class ImgApi{
                 "method": "POST"
             });
             let imgJson = await img.json();
+            
+        console.log(imgJson)
 	    let imgUrls = [];
-	    for(let i in imgJson){
-                let imgUrl = imgJson.data[i].url;
-		imgUrls.push(imgUrl);
-	    }
-            return Promise.resolve(imgUrls);
+	    for(let i in imgJson.data){
+	        let imgUrl = imgJson.data[i].url;
+            imgUrls.push(imgUrl);
+        }
+        
+        return Promise.resolve(imgUrls);
+        
         }catch(err){
             return Promise.reject(err);
         }
