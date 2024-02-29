@@ -12,12 +12,12 @@ const wizard = new Wizard(
   },
   async (ctx) => {
     let noOfImage = ctx.message.text;
+    ctx.session.noOfImage = noOfImage;
     if (!(noOfImage >= 1 && noOfImage <= 10)) {
       ctx.reply('Enter value between 1-10 !');
       return;
-    },
-    ctx.session.noOfImage = noOfImage;
-    await ctx.reply(`Number of Images: 1`);
+    }
+    await ctx.reply(`Number of Images: ${noOfImage}`);
     await ctx.reply('Enter Steps of generating Image ( 1-75 ) ...');
     return ctx.wizard.next();
   },
