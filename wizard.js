@@ -11,6 +11,11 @@ const wizard = new Wizard(
     return ctx.wizard.next();
   },
   async (ctx) => {
+    ctx.session.prompt = ctx.message.text; // Store the prompt
+    await ctx.reply('Enter the number of images (1-10) ...');
+    return ctx.wizard.next();
+  },
+  async (ctx) => {
     let noOfImage = ctx.message.text;
     ctx.session.noOfImage = noOfImage;
     if (!(noOfImage >= 1 && noOfImage <= 10)) {
@@ -18,7 +23,6 @@ const wizard = new Wizard(
       return;
     }
     await ctx.reply(`Number of Images: ${noOfImage}`);
-    await ctx.reply('Enter Steps of generating Image ( 1-75 ) ...');
     return ctx.wizard.next();
   },
   async (ctx) => {
