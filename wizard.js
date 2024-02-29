@@ -23,10 +23,7 @@ const wizard = new Wizard(
       return;
     }
     await ctx.reply(`Number of Images: ${noOfImage}`);
-    return ctx.wizard.next();
-  },
-  async (ctx) => {
-    ctx.reply('Please Wait ...');
+    await ctx.reply('Please Wait ...');
     let imgApi = new ImgApi();
     let params = {
 	"model" : "default",
