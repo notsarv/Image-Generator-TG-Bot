@@ -28,7 +28,11 @@ Before you begin, ensure you have met the following requirements:
 
 ## How to Get the API Key
 
-*This section is a placeholder. Please follow the instructions
+1. Join [Galaxy AI](https://discord.com/invite/zJAk5akk3d) Discord server.
+2. Visit the ``Commands`` channel.
+3. Use ``/generate`` command to generate your private API Key.
+4. Use this generated **KEY** 🔑 in your **.env** file.
+
 ## Usage
 
 1. Clone the repository.
