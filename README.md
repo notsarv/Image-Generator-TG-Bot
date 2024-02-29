@@ -20,15 +20,24 @@ This project is a Telegram bot that leverages the power of the GalaxyAI API to g
 3. Set up your Telegram bot and obtain your Telegram Bot Token.
 4. Sign up on GalaxyAI to get your free API key.
 
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- You have installed the latest version of Node.js.
+
 ## How to Get the API Key
 
 *This section is a placeholder. Please follow the instructions provided by the API provider to obtain your API key.*
 
 ## Usage
 
-Once you have your Telegram Bot Token and GalaxyAI API Key, you can start the bot by running `python bot.py`.
-
-Enjoy generating unlimited images with your new Telegram bot!
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run `npm install` to install the necessary dependencies.
+4. Open the `.env.example` file.
+5. Update the `BOT_TOKEN` and `API_KEY` with your Telegram bot token and API key you generated respectively.
+6. Rename the `.env.example` file to `.env`.
 
 ## Contributing
 
