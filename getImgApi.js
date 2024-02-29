@@ -7,7 +7,7 @@ class ImgApi{
             let img = await fetch(`https://galaxyapi.onrender.com/v1/images/generations`, {
                 "headers": {
 		    "accept": "application/json",
-                    "Authorization": `Bearer ${process.env.apikey}`,
+                    "Authorization": `Bearer ${process.env.APIKEY}`,
                     "content-type": "application/json"
                 },
                 "body": `${JSON.stringify(params)}`,
@@ -16,7 +16,7 @@ class ImgApi{
             let imgJson = await img.json();
 	    let imgUrls = [];
 	    for(let i in imgJson){
-                let imgUrl = imgJson[i].images[0].jpegUrl;
+                let imgUrl = imgJson.data[i].url;
 		imgUrls.push(imgUrl);
 	    }
             return Promise.resolve(imgUrls);
