@@ -40,7 +40,7 @@ async (ctx) => {
         "prompt": `${ctx.session.prompt}`
     };
 
-    let imgs = await imgApi.generateImage(ctx.session.model, params);
+    let imgs = await imgApi.generateImage(params);
 
     for(let i in imgs){
         ctx.replyWithPhoto(imgs[i]);
